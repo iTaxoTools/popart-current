@@ -326,9 +326,9 @@ void HapNet::setupGraph()
   if (thread() != QApplication::instance()->thread())
     thread()->exit();
 #else
-  catch (exception)
+  catch (exception& e)
   {
-    throw();
+    throw e;
   }
 #endif
 }

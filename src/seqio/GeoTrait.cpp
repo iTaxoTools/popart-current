@@ -156,11 +156,13 @@ void GeoTrait::setupStaticData(const vector<pair<float,float> >& seqLocations, c
   _statClustNames = clusterNames;
 }
 
+#ifdef NET_QT
 void GeoTrait::processClustering()
 {
   _statGeoTraits = clusterSeqs(_statCoords, _statSeqNames, _statSeqCounts, _statNClusts, _statClustCoords, _statClustNames);
   
 }
+#endif
 
 const vector<GeoTrait*> & GeoTrait::getClusterResult() const
 {

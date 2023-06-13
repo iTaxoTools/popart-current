@@ -2,7 +2,7 @@
 #include "NetworkError.h"
 #include "Graph.h"
 
-#include <lp_lib.h>
+#include <lpsolve/lp_lib.h>
 
 #include <algorithm>
 #include <limits>

@@ -7,7 +7,9 @@
 
 #include "TightSpanWalker.h"
 #include "NetworkError.h"
+#ifdef NET_QT
 #include <QTime>
+#endif
 
 #include <algorithm>
 #include <cmath>
@@ -45,8 +47,10 @@ void TightSpanWalker::computeGraph()
     
     _vertexMap[dTvect] = vertex(i);
   }
+#ifdef NET_QT
   QTime executionTimer;  
   executionTimer.start();
+#endif
   for (unsigned i = 0; i < nseqs(); i++)
   {
     for (unsigned j = 0; j < i; j++)

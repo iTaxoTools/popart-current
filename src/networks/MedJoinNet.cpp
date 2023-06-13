@@ -10,7 +10,9 @@ using namespace std;
 #include "Edge.h"
 #include "NetworkError.h"
 
+#ifdef NET_QT
 #include <QTime>
+#endif
 
 MedJoinNet::MedJoinNet(const std::vector<Sequence *> & seqs, const vector<bool> & mask, unsigned epsilon)
   : HapNet(seqs, mask), _nsamples(HapNet::nseqs())
