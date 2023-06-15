@@ -73,13 +73,15 @@ int main(int argc, char **argv)
 
   infile.close();
   
-  network = new TCS(seqvect);
+  network = new TCS(seqvect, std::vector<bool>());
+	network->setupGraph();
   
   cout << "TCS:\n" << *network << endl;
   
   delete network;
   
-  network = new TightSpanWalker(seqvect);
+  network = new TightSpanWalker(seqvect, std::vector<bool>());
+	network->setupGraph();
   
   cout << "Tight Span Walker:\n" << *network << endl;
 
@@ -87,7 +89,8 @@ int main(int argc, char **argv)
   delete network;
   //return 0;
   
-  network = new IntNJ(seqvect);
+  network = new IntNJ(seqvect, std::vector<bool>());
+	network->setupGraph();
   
   cout << "IntNJ:\n" << *network << endl;
 
@@ -171,7 +174,8 @@ int main(int argc, char **argv)
 
 
   network = //new MinSpanNet(seqvect, false, 5);
-  new MedJoinNet(seqvect, 0);
+  new MedJoinNet(seqvect, std::vector<bool>(), 0);
+	network->setupGraph();
 
   
   /*for (int i = 0; i < network->nodeCount(); i++)
@@ -291,7 +295,7 @@ int main(int argc, char **argv)
      
      try
      {
-     HapNet *pnet = new ParsimonyNet(seqvect, treevect);
+     HapNet *pnet = new ParsimonyNet(seqvect, std::vector<bool>(), treevect);
      cout << "Parsiomony Network:\n" << (*pnet) << endl;
      
      delete pnet;
