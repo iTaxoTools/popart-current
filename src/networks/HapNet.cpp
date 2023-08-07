@@ -171,7 +171,6 @@ void HapNet::condenseSitePats()
         break;
       }
     }
-		delete[] samePosAs;
   }
   
   // new site indices in condensed seq vect... Should this be an instance variable?
@@ -210,6 +209,7 @@ void HapNet::condenseSitePats()
     _condensedSeqs.at(i) = buffers[i].str();
 
   delete [] buffers;
+	delete[] samePosAs;
 }
 
 
