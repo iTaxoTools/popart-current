@@ -534,10 +534,12 @@ void HapNet::updateProgress(int progress)
 #else
 void HapNet::updateProgress(int progress)
 {
+#ifndef DISABLE_PROGRESSBAR
   cout << '.';
   if (progress < 0 || progress > 100)  throw NetworkError("Progress is not a percentage.");
   if (! progress % 10)  cout << "] " << progress << "%\n[";
   cout.flush();
+#endif
 }
 #endif
 
