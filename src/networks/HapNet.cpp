@@ -122,7 +122,8 @@ void HapNet::condenseSeqs()
 
 void HapNet::condenseSitePats()
 {  
-  unsigned samePosAs[_nsites];
+  //unsigned samePosAs[_nsites];
+  unsigned* samePosAs = new unsigned[_nsites];
   for (unsigned i = 0; i < _nsites; i++)   samePosAs[i] = i;
 
   // Find identical site patterns
@@ -170,6 +171,7 @@ void HapNet::condenseSitePats()
         break;
       }
     }
+		delete[] samePosAs;
   }
   
   // new site indices in condensed seq vect... Should this be an instance variable?

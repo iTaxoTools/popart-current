@@ -427,7 +427,9 @@ void GeoTrait::optimiseCentroids(const vector<pair<float,float> > &locations)
   {
     _centroids.at(i).first = 0;
     _centroids.at(i).second = 0;
-    cartesian.push_back((coord3d){0,0,0});
+    //cartesian.push_back((coord3d){0,0,0});
+		coord3d temp{0, 0, 0};
+		cartesian.push_back(temp);
     sizes.push_back(0);
   }
   
