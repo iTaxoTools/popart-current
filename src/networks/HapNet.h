@@ -70,7 +70,7 @@ protected:
       Iterator & operator++();
       //Iterator operator++(int);
       const Vertex ** operator*() const;
-      
+
       const Vertex** removePair();
       void insertPair(const Vertex **);
       bool operator==(const Iterator &) const;
@@ -92,7 +92,7 @@ protected:
     unsigned distance() const;
     bool operator<(const VertContainer &) const;
     bool operator>(const VertContainer &) const;
-    
+
     size_t size() const { return _npairs; };
     const Vertex ** at(unsigned) const;
 
@@ -119,10 +119,10 @@ protected:
   private:
     const bool _reverse;
   };
-  
-    
+
+
   typedef std::priority_queue<VertContainer*, std::vector<VertContainer*>, VCPtrComparitor> VCPQ;
-  
+
   virtual void setDistance(unsigned, unsigned, unsigned);
   virtual unsigned distance(unsigned, unsigned) const;
   virtual size_t nseqs() const;
@@ -135,14 +135,14 @@ protected:
   const std::vector<std::string> & condensedSeqs() const;
   const std::vector<unsigned> & weights() const;
   void updateProgress(int);
-  
+
 private:
   size_t _nseqs; // unique sequences!
   size_t _nsites;
   size_t _nCsites;
   //size_t _nTraits;
   Sequence::CharType _datatype;
-  std::vector<Sequence *>  _origSeqs; 
+  std::vector<Sequence *>  _origSeqs;
   std::vector<std::string> _condensedSeqs;
   unsigned *_orig2cond;
   std::vector<std::vector<unsigned> > _cond2orig;
@@ -154,7 +154,7 @@ private:
   std::vector<unsigned> *_traits;
   std::vector<std::string> _traitNames;
   bool _isGraphSetup;
-  
+
   const static std::vector<unsigned> _emptyTraits;
 
   virtual void computeGraph() = 0;
@@ -170,6 +170,12 @@ signals:
   void caughtException(const QString &);
   void traitsChanged();
 #endif
+};
+
+class UnequalSequencesError : public std::runtime_error {
+public:
+    UnequalSequencesError(const std::string& message)
+        : std::runtime_error(message) {}
 };
 
 #endif /* HAPNET_H_ */
